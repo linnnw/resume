@@ -30,7 +30,8 @@
             this.scroll = new BScroll(this.$refs.wrapper, {
                 probeType: this.probeType,
                 pullUpLoad: this.pullUpLoad,    /*上拉加载更多*/
-                click: true
+                click: true,
+                mouseWheel: true
             })
             this.scroll.on('scroll', position => {  /*记录坐标 option是坐标值*/
                 this.$emit('bTop', position)
