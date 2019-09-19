@@ -10,7 +10,7 @@
             <Info></Info>
         </Scroll>
 
-        <BackTop class="animated" @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
+        <BackTop class="animated infinite bounce backTop" @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
 
 
     </div>
@@ -59,6 +59,12 @@
 </script>
 
 <style scoped>
+    .backTop {
+        animation-duration: 2200ms;  /*//动画执行时间*/
+        animation-delay: 0ms;  /*//延迟*/
+    }
+
+
     #resume {
         height: 100vh;
     }
