@@ -1,12 +1,16 @@
 <template>
     <div class="homePage">
-        <Head v-if="isHidden"></Head>
+<!--        <Head class="head" v-show="false"></Head>    &lt;!&ndash;isHidden&ndash;&gt;-->
         <div class="body">
             <h1>LIN WEI</h1>
             <hr>
-            <div>123123</div>
+            <transition enter-active-class='flipInX' leave-active-class='flipOutX' >
+                <div v-show="divFlag" class="post">WEB前端</div>
+            </transition>
+
             <button :class="{active: colorStyle}" @mouseover="modify" @mouseout="restore">查看项目</button>
         </div>
+        <slot></slot>
     </div>
 </template>
 
@@ -21,11 +25,17 @@
         },
         data(){
             return {
+                divFlag: true,
                 isHidden: true,
                 flag: false,
                 screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值 （这个很重要）
                 colorStyle: false
             }
+        },
+        mounted() {
+            setInterval(() => {
+                this.divFlag = !this.divFlag
+            },2000)
         },
 
         methods: {
@@ -51,6 +61,14 @@
         }
 
 
+        .post {
+            margin: 33px auto 25px;
+            font-size: 16px;
+            animation-duration: 2200ms;  /*//动画执行时间*/
+            color: #fff;
+
+        }
+
         .body {
             height: 300px;
             width: 300px;
@@ -64,6 +82,7 @@
             text-align: center;
             font-size: 45px;
             font-weight: 700;
+            letter-spacing: 8px;
             color: #fff;
         }
         hr {
@@ -102,7 +121,6 @@
             position: relative;
         }
 
-
         .body {
             height: 300px;
             width: 800px;
@@ -112,11 +130,19 @@
             top: 50%;
         }
 
+        .post {
+            margin: 25px auto;
+            font-size: 16px;
+            animation-duration: 2200ms;  /*//动画执行时间*/
+            color: #fff;
+        }
+
         h1 {
             text-align: center;
             font-size: 65px;
             font-weight: 700;
             color: #fff;
+            letter-spacing: 8px;
         }
         hr {
             margin-top: 35px;
@@ -150,7 +176,7 @@
 
         .homePage .active {
             color: #fff;
-            background-color: #0C6164;
+            background-color: #0C6164!important;
         }
     }
 </style>

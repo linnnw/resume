@@ -31,7 +31,12 @@
                 probeType: this.probeType,
                 pullUpLoad: this.pullUpLoad,    /*上拉加载更多*/
                 click: true,
-                mouseWheel: true
+                mouseWheel: true,
+                bounce: false,       /*取消弹性*/
+                // scrollbar: {
+                //     fade: true,
+                //     interactive: false // 1.8.0 新增
+                // }
             })
             this.scroll.on('scroll', position => {  /*记录坐标 option是坐标值*/
                 this.$emit('bTop', position)

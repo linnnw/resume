@@ -1,14 +1,11 @@
 <template>
     <div class="head">
 
-            <span class="nav-l"><span>林</span>伟</span>
+            <span class="nav-l" @click="upTop"><span>林</span>伟</span>
             <span @click.self="view" class="nav-r">
                 <span class="line"></span>
                     <ul class="nav-ul" v-show="flag">
-                        <li>关于</li>
-                        <li>项目</li>
-                        <li>客户</li>
-                        <li>联系方式</li>
+                        <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li>
                     </ul>
             </span>
 
@@ -20,8 +17,10 @@
         name: "Head",
         data(){
             return {
+                isCurrent: 99,
                 flag: false,
                 screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值 （这个很重要）
+                list: ['关于我','项目','客户','联系方式']
             }
         },
         created() {
@@ -34,11 +33,18 @@
 
         },
         methods: {
-            view(){
+            view() {
                 if (this.screenWidth <= 767) {
                     this.flag = !this.flag
                 }
             },
+            upTop() {
+                this.$emit('upTop');
+            },
+            clickLi(k) {
+                this.isCurrent = k;
+                this.$emit('clickLi',k)
+            }
         },
         mounted() {
             const that = this
@@ -117,6 +123,13 @@
             text-align: right;
             color: #ddd;
         }
+        .head .nav-r .nav-ul li:hover {
+            color: #0C6164;
+        }
+
+        .current {
+            color: #0C6164!important;
+        }
 
     }
 
@@ -143,7 +156,16 @@
         }
         .head .nav-r .nav-ul li {
             flex: 1;
-            font-size: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .head .nav-r .nav-ul li:hover {
+            color: #0C6164;
+        }
+
+        .current {
+            color: #0C6164!important;
         }
 
 

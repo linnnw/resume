@@ -1,16 +1,20 @@
 <template>
     <div id="resume">
 
-        <Head :class="['head',{headStyle: headStyle}]" v-show="headHidden"></Head>
+        <Head @clickLi="clickLi" ref="head" @upTop="upTop" :class="['head',{headStyle: headStyle}]" v-show="headHidden"></Head>
 
         <Scroll class="scroll" ref="scroll" @bTop="bToTop" :probeType="3">
 
-            <Home  ref="home"></Home>
+            <Home ref="home">
+                <Down class="animated infinite bounce down" @click.native="downInfo"></Down>
+            </Home>
             <!--<Info></Info>-->
-            <Info></Info>
+            <Info ref="info" ></Info>
+            <SomeProject ref="sproject"></SomeProject>
+
         </Scroll>
 
-        <BackTop class="animated infinite bounce backTop" @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
+        <BackTop  @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
 
 
     </div>
@@ -23,6 +27,9 @@
     import Info from '../components/info/Info'
     import BackTop from './BackTop'
     import Head from '../components/home/childComponents/Head'
+    import Down from '../components/home/childComponents/Down'
+    import SomeProject from '../components/someProject/SomeProject'
+
 
 
     export default {
@@ -31,7 +38,8 @@
             return {
                 flag: false,
                 headStyle: false,
-                headHidden: true
+                headHidden: true,
+                infoTop: 0
             }
         },
         components: {
@@ -39,7 +47,9 @@
             Home,
             Info,
             BackTop,
-            Head
+            Head,
+            Down,
+            SomeProject
         },
         methods: {
             backTop(){
@@ -50,19 +60,45 @@
                 // console.log(option);
                 this.flag = (-option.y) > 700;
                 this.headStyle = (-option.y) > 50;
-                this.$refs.home.isHidden = (-option.y) < 1;
-                this.headHidden = (option.y) < 0;
+                // this.$refs.home.isHidden = option.y >= 0;
+                this.headHidden = (option.y) <= 0;
+
+
+                if (-option.y < this.$refs.info.$el.offsetTop) {
+                    this.$refs.head.isCurrent = 99;
+                }else if(-option.y == this.$refs.info.$el.offsetTop) {
+                    this.$refs.head.isCurrent = 0;
+                }else if (-option.y < this.$refs.sproject.$el.offsetTop) {
+                    this.$refs.head.isCurrent = 0;
+                }else if (-option.y >= this.$refs.sproject.$el.offsetTop) {
+                    this.$refs.head.isCurrent = 1;
+                }
+
 
             },
+            downInfo(){
+                this.infoTop = this.$refs.info.$el.offsetTop
+                this.$refs.scroll.scrollBackTop(0,-this.infoTop,1000);
+            },
+            upTop() {
+                this.$refs.scroll.scrollBackTop(0,0,0);  /*回到顶部*/
+            },
+            clickLi(k) {
+                switch (k) {
+                    case 0:
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.info.$el.offsetTop,1000);  /*到关于我页面*/
+                        break;
+                    case 1:
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,1000);
+                        break;
+
+                }
+            }
         }
     }
 </script>
 
 <style scoped>
-    .backTop {
-        animation-duration: 2200ms;  /*//动画执行时间*/
-        animation-delay: 0ms;  /*//延迟*/
-    }
 
 
     #resume {
@@ -76,11 +112,20 @@
         left: 0;
     }
 
+    .down {
+        animation-duration: 2200ms;  /*//动画执行时间*/
+        animation-delay: 0ms;  /*//延迟*/
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        margin-left: -25px;
+    }
+
     .head {
         position: relative;
         z-index: 22;
         padding: 30px 40px!important;
-        transition: all .6s ease;
+        transition: all .5s ease;
         /*background-color: #090D16;*/
     }
     .headStyle {
@@ -94,9 +139,9 @@
     .headStyle>>>.line,
     .headStyle>>>.nav-r::before,
     .headStyle>>>.nav-r::after {
-        background-color: #595959!important;
+        background-color: #595959;
     }
     .headStyle>>>.nav-ul li {
-        color: #595959!important;;
+        color: #595959;
     }
 </style>
