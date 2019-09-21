@@ -1,7 +1,7 @@
 <template>
     <div id="resume">
 
-        <Head @clickLi="clickLi" ref="head" @upTop="upTop" :class="['head',{headStyle: headStyle}]" v-show="headHidden"></Head>
+        <Head @clickLi="clickLi" ref="head" @upTop="upTop" :class="['head',{headStyle: headStyle}]" ></Head>
 
         <Scroll class="scroll" ref="scroll" @bTop="bToTop" :probeType="3">
 
@@ -61,7 +61,6 @@
                 this.flag = (-option.y) > 700;
                 this.headStyle = (-option.y) > 50;
                 // this.$refs.home.isHidden = option.y >= 0;
-                this.headHidden = (option.y) <= 0;
 
 
                 if (-option.y < this.$refs.info.$el.offsetTop) {
@@ -84,15 +83,18 @@
                 this.$refs.scroll.scrollBackTop(0,0,0);  /*回到顶部*/
             },
             clickLi(k) {
+                this.$refs.head.flag2 = false
                 switch (k) {
                     case 0:
-                        this.$refs.scroll.scrollBackTop(0,-this.$refs.info.$el.offsetTop,1000);  /*到关于我页面*/
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.info.$el.offsetTop,700);  /*到关于我页面*/
                         break;
                     case 1:
-                        this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,1000);
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,700);
                         break;
 
                 }
+
+
             }
         }
     }
@@ -137,8 +139,8 @@
         color: #595959;
     }
     .headStyle>>>.line,
-    .headStyle>>>.nav-r::before,
-    .headStyle>>>.nav-r::after {
+    .headStyle>>>.nav-r2::before,
+    .headStyle>>>.nav-r2::after {
         background-color: #595959;
     }
     .headStyle>>>.nav-ul li {

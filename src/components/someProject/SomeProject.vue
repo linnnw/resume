@@ -12,7 +12,7 @@
 
 <style scoped>
     #someProject {
-        height: 1000px;
+        height: 1900px;
         width: 100%;
         background-color: aqua;
     }

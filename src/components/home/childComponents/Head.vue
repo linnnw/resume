@@ -2,12 +2,27 @@
     <div class="head">
 
             <span class="nav-l" @click="upTop"><span>林</span>伟</span>
-            <span @click.self="view" class="nav-r">
+            <span class="nav-r">
                 <span class="line"></span>
                     <ul class="nav-ul" v-show="flag">
-                        <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li>
+                        <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li><!--电脑端-->
                     </ul>
+
             </span>
+
+        <span @click.self="view" class="nav-r2">
+                <span class="line"></span>
+
+
+            <transition enter-active-class='fadeInRight' leave-active-class='fadeOutRight' >
+                 <ul class="nav-ul2 animated" v-show="flag2">
+                    <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li><!--手机-->
+                </ul>
+            </transition>
+
+            </span>
+
+
 
     </div>
 </template>
@@ -18,25 +33,15 @@
         data(){
             return {
                 isCurrent: 99,
-                flag: false,
-                screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值 （这个很重要）
+                flag: true,
+                flag2: false,
                 list: ['关于我','项目','客户','联系方式']
             }
         },
-        created() {
-
-            if(this.screenWidth > 767){
-                this.flag = true
-            }else {
-                this.flag = false
-            }
-
-        },
         methods: {
             view() {
-                if (this.screenWidth <= 767) {
-                    this.flag = !this.flag
-                }
+                    this.flag2 = !this.flag2
+
             },
             upTop() {
                 this.$emit('upTop');
@@ -44,24 +49,6 @@
             clickLi(k) {
                 this.isCurrent = k;
                 this.$emit('clickLi',k)
-            }
-        },
-        mounted() {
-            const that = this
-            window.onresize = () => {
-                return (() => {
-                    window.screenWidth = document.body.clientWidth
-                    that.screenWidth = window.screenWidth
-                })()
-            }
-        },
-        watch: {
-            screenWidth () {
-                if(this.screenWidth > 767){
-                    this.flag = true
-                }else {
-                    this.flag = false
-                }
             }
         }
     }
@@ -77,11 +64,13 @@
             font-weight: 700;
             color: #fff;
         }
-
-        .head  .nav-l span{
+        .head .nav-l {
+            font-size: 20px;
+        }
+        .head .nav-l span {
             color: #0C6164;
         }
-        .head  .nav-r {
+        .head .nav-r2 {
             width: 25px;
             float: right;
             position: relative;
@@ -95,7 +84,7 @@
             width: 100%;
             height: 3px;
         }
-        .head .nav-r::after {
+        .head .nav-r2::after {
             content: "";
             position: absolute;
             left: 0;
@@ -104,7 +93,7 @@
             width: 100%;
             height: 3px;
         }
-        .head .nav-r::before {
+        .head .nav-r2::before {
             content: "";
             position: absolute;
             left: 0;
@@ -113,23 +102,31 @@
             width: 100%;
             height: 3px;
         }
-        .nav-ul {
-            width: 70px;
+        .nav-ul2 {
+            padding: 45px 0;
             position: absolute;
             right: -3px;
             top: 25px;
+            background-color: rgba(36,85,89,.9);
+
+            width: 190px;
+            height: 160px;
+            border-radius: 7px;
         }
-        .nav-ul li {
-            text-align: right;
+        .nav-ul2 li {
+            font-size: 20px;
+            text-align: center;
             color: #ddd;
-        }
-        .head .nav-r .nav-ul li:hover {
-            color: #0C6164;
+            padding: 10px 5px;
         }
 
         .current {
             color: #0C6164!important;
         }
+
+        .nav-r  {
+             display: none;
+         }
 
     }
 
@@ -143,6 +140,9 @@
             line-height: 40px;
             color: #fff;
             /*overflow: hidden;*/
+        }
+        .head .line {
+            display: none;
         }
         .head  .nav-l span{
             color: #0C6164;
@@ -167,7 +167,9 @@
         .current {
             color: #0C6164!important;
         }
-
+        .nav-r2  {
+            display: none;
+        }
 
     }
 

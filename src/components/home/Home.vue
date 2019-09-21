@@ -5,7 +5,7 @@
             <h1>LIN WEI</h1>
             <hr>
             <transition enter-active-class='flipInX' leave-active-class='flipOutX' >
-                <div v-show="divFlag" class="post">WEB前端</div>
+                <div v-show="divFlag" class="post animated">WEB前端</div>
             </transition>
 
             <button :class="{active: colorStyle}" @mouseover="modify" @mouseout="restore">查看项目</button>
@@ -131,7 +131,7 @@
         }
 
         .post {
-            margin: 25px auto;
+            margin: 33px auto 25px;
             font-size: 16px;
             animation-duration: 2200ms;  /*//动画执行时间*/
             color: #fff;
