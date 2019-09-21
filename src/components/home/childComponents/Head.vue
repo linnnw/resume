@@ -10,17 +10,22 @@
 
             </span>
 
-        <span @click.self="view" class="nav-r2">
-                <span class="line"></span>
 
 
-            <transition enter-active-class='fadeInRight' leave-active-class='fadeOutRight' >
-                 <ul class="nav-ul2 animated" v-show="flag2">
-                    <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li><!--手机-->
-                </ul>
-            </transition>
+    <span  class="nav-r2">    <!--手机端-->
+        <div class="phone" @click.self="view"></div>
+        <span class="line"></span>
 
-            </span>
+
+        <transition enter-active-class='fadeInRight' leave-active-class='fadeOutRight' >
+             <ul class="nav-ul2 animated" v-show="flag2">
+                <li v-for="(item, k) in list" :key="k" :class="{current:isCurrent == k}" @click="clickLi(k)">{{ item }}</li><!--手机-->
+            </ul>
+        </transition>
+
+        </span>
+
+
 
 
 
@@ -40,7 +45,7 @@
         },
         methods: {
             view() {
-                    this.flag2 = !this.flag2
+                this.flag2 = !this.flag2
 
             },
             upTop() {
@@ -57,6 +62,13 @@
 <style scoped>
     @media screen and (max-width: 767px){
 
+        .phone {
+            width: 25px;
+            height: 25px;
+            float: right;
+            position: relative;
+            z-index: 22;
+        }
         .head {
             padding: 30px 40px;
             /*position: fixed;*/
@@ -103,7 +115,7 @@
             height: 3px;
         }
         .nav-ul2 {
-            padding: 45px 0;
+            padding: 25px 0 45px;
             position: absolute;
             right: -3px;
             top: 25px;
@@ -112,6 +124,8 @@
             width: 190px;
             height: 160px;
             border-radius: 7px;
+
+            animation-duration: 700ms;  /*//动画执行时间*/
         }
         .nav-ul2 li {
             font-size: 20px;

@@ -5,12 +5,13 @@
 
         <Scroll class="scroll" ref="scroll" @bTop="bToTop" :probeType="3">
 
-            <Home ref="home">
+            <Home ref="home" @project="project">
                 <Down class="animated infinite bounce down" @click.native="downInfo"></Down>
             </Home>
             <!--<Info></Info>-->
             <Info ref="info" ></Info>
             <SomeProject ref="sproject"></SomeProject>
+            <corporate ref="corporate"></corporate>
 
         </Scroll>
 
@@ -29,6 +30,7 @@
     import Head from '../components/home/childComponents/Head'
     import Down from '../components/home/childComponents/Down'
     import SomeProject from '../components/someProject/SomeProject'
+    import corporate from '../components/corporate/Corporate'
 
 
 
@@ -49,9 +51,13 @@
             BackTop,
             Head,
             Down,
-            SomeProject
+            SomeProject,
+            corporate
         },
         methods: {
+            project() {
+                this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,700);
+            },
             backTop(){
                 this.$refs.scroll.scrollBackTop(0,0,1000);  /*回到顶部*/
             },
@@ -69,8 +75,10 @@
                     this.$refs.head.isCurrent = 0;
                 }else if (-option.y < this.$refs.sproject.$el.offsetTop) {
                     this.$refs.head.isCurrent = 0;
-                }else if (-option.y >= this.$refs.sproject.$el.offsetTop) {
+                }else if (-option.y >= this.$refs.sproject.$el.offsetTop && -option.y < this.$refs.corporate.$el.offsetTop) {
                     this.$refs.head.isCurrent = 1;
+                }else if (-option.y >= this.$refs.corporate.$el.offsetTop) {
+                    this.$refs.head.isCurrent = 2;
                 }
 
 
@@ -89,9 +97,11 @@
                         this.$refs.scroll.scrollBackTop(0,-this.$refs.info.$el.offsetTop,700);  /*到关于我页面*/
                         break;
                     case 1:
-                        this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,700);
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.sproject.$el.offsetTop,700);  /*到项目页面*/
                         break;
-
+                    case 2:
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.corporate.$el.offsetTop,700);  /*到项目页面*/
+                        break;
                 }
 
 

@@ -17,6 +17,7 @@
             text-align: center;
             border-radius: 5px;
             background-color: #0C6164;
+            opacity: .95;
             color: #fff;
             font-weight: 700;
             font-size: 20px;
@@ -33,6 +34,7 @@
             text-align: center;
             border-radius: 5px;
             background-color: #0C6164;
+            opacity: .95;
             color: #fff;
             font-weight: 700;
             font-size: 20px;

@@ -8,7 +8,7 @@
                 <div v-show="divFlag" class="post animated">WEB前端</div>
             </transition>
 
-            <button :class="{active: colorStyle}" @mouseover="modify" @mouseout="restore">查看项目</button>
+            <button @click="project">查看项目</button>
         </div>
         <slot></slot>
     </div>
@@ -39,12 +39,9 @@
         },
 
         methods: {
-            modify() {
-                this.colorStyle = true
-            },
-            restore(){
-                this.colorStyle = false
-            },
+            project() {
+                this.$emit('project');
+            }
 
         }
     }
@@ -62,7 +59,7 @@
 
 
         .post {
-            margin: 33px auto 25px;
+            margin: 33px auto;
             font-size: 16px;
             animation-duration: 2200ms;  /*//动画执行时间*/
             color: #fff;
@@ -102,9 +99,9 @@
             color: #0C6164;
             background-color: transparent;
             position: absolute;
-            top: 150px;
             left: 50%;
             transform: translateX(-50%);
+
 
         }
         .body div {
@@ -131,7 +128,7 @@
         }
 
         .post {
-            margin: 33px auto 25px;
+            margin: 33px auto 37px;
             font-size: 16px;
             animation-duration: 2200ms;  /*//动画执行时间*/
             color: #fff;
@@ -153,7 +150,6 @@
         }
         .body button {
             box-sizing: border-box;
-            margin-top: 35px;
             width: 238px;
             height: 38px;
             line-height: 34px;
@@ -163,12 +159,15 @@
             color: #0C6164;
             background-color: transparent;
             position: absolute;
-            top: 150px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 20px;
             font-weight: 700;
 
+        }
+        .body button:hover {
+            color: #fff;
+            background-color: #0C6164;
         }
         .body div {
             text-align: center;
