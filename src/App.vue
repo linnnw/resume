@@ -30,6 +30,7 @@ export default {
         -ms-user-select: none;
         user-select: none;
         font-family: STKaiti;
+
     }
 
 </style>

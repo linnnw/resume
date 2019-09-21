@@ -1,6 +1,5 @@
 <template>
     <div id="resume">
-
         <Head @clickLi="clickLi" ref="head" @upTop="upTop" :class="['head',{headStyle: headStyle}]" ></Head>
 
         <Scroll class="scroll" ref="scroll" @bTop="bToTop" :probeType="3">
@@ -12,9 +11,8 @@
             <Info ref="info" ></Info>
             <SomeProject ref="sproject"></SomeProject>
             <corporate ref="corporate"></corporate>
-
+            <Contact ref="contact"></Contact>
         </Scroll>
-
         <BackTop  @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
 
 
@@ -31,6 +29,7 @@
     import Down from '../components/home/childComponents/Down'
     import SomeProject from '../components/someProject/SomeProject'
     import corporate from '../components/corporate/Corporate'
+    import Contact from '../components/contact/Contact'
 
 
 
@@ -52,7 +51,8 @@
             Head,
             Down,
             SomeProject,
-            corporate
+            corporate,
+            Contact
         },
         methods: {
             project() {
@@ -62,23 +62,22 @@
                 this.$refs.scroll.scrollBackTop(0,0,1000);  /*回到顶部*/
             },
 
-            bToTop(option){     /*滑动到2000像素显示回到顶部*/
+            bToTop(option){
                 // console.log(option);
-                this.flag = (-option.y) > 700;
+                this.flag = (-option.y) > 700;  /*滑动到700像素显示回到顶部*/
                 this.headStyle = (-option.y) > 50;
                 // this.$refs.home.isHidden = option.y >= 0;
 
-
                 if (-option.y < this.$refs.info.$el.offsetTop) {
                     this.$refs.head.isCurrent = 99;
-                }else if(-option.y == this.$refs.info.$el.offsetTop) {
+                }else if(-option.y < this.$refs.sproject.$el.offsetTop) {
                     this.$refs.head.isCurrent = 0;
-                }else if (-option.y < this.$refs.sproject.$el.offsetTop) {
-                    this.$refs.head.isCurrent = 0;
-                }else if (-option.y >= this.$refs.sproject.$el.offsetTop && -option.y < this.$refs.corporate.$el.offsetTop) {
+                }else if (-option.y < this.$refs.corporate.$el.offsetTop) {
                     this.$refs.head.isCurrent = 1;
-                }else if (-option.y >= this.$refs.corporate.$el.offsetTop) {
+                }else if (-option.y < this.$refs.contact.$el.offsetTop) {
                     this.$refs.head.isCurrent = 2;
+                } else {
+                    this.$refs.head.isCurrent = 3;
                 }
 
 
@@ -101,6 +100,9 @@
                         break;
                     case 2:
                         this.$refs.scroll.scrollBackTop(0,-this.$refs.corporate.$el.offsetTop,700);  /*到项目页面*/
+                        break;
+                    case 3:
+                        this.$refs.scroll.scrollBackTop(0,-this.$refs.contact.$el.offsetTop,700);  /*到项目页面*/
                         break;
                 }
 

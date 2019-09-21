@@ -40,7 +40,7 @@
                 isCurrent: 99,
                 flag: true,
                 flag2: false,
-                list: ['关于我','项目','客户','联系方式']
+                list: ['关于我','项目','就职公司','联系方式']
             }
         },
         methods: {
