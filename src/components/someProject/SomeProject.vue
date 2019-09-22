@@ -39,7 +39,7 @@
                 <div class="pjPopup-r">
                     <h1>蘑菇街</h1>
                     <hr>
-                    <h2>模拟蘑菇街，用的蘑菇街真是数据</h2>
+                    <h2>模拟蘑菇街，用的蘑菇街真实数据</h2>
                     <ul>
                         <li>html5</li>
                         <li>css3</li>

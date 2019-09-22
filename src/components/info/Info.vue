@@ -1,12 +1,12 @@
 <template>
     <div id="Info">
-        <img src="../../assets/images/hero_1.jpg" alt="">
-        <h1>I AM DYNAMIC AND CREATIVE</h1>
+        <img src="../../assets/images/head.jpg" alt="">
+        <h1>前端即兴趣，兴趣即未来</h1>
         <hr>
         <div class="paragraph">
-            <p>I am a Web Developer based in London, I graduated with a degree in computer science and currently work at Barclays in Canary Wharf, London. With more than four years of industry experiences in web development, I have worked on projects and applications for high profile clients such as HBO, Warner Bros, Hasbro and British Land.</p>
-            <p>I am passionate about creating beautiful, usability oriented and highly crafted web solutions, combining a considered approach to emerging technologies. I specialise in front-end web development technologies including React, Redux, advanced HTML(5), CSS(3), JavaScript, JQuery (cross-platform and cross-browser compatibility) with a strong understanding of web accessibility, web usability standards and web design principles.</p>
-            <p>Each website I develop is built to be search engine friendly, fully responsive and to apply the latest development principles and techniques. To find out more about what I can do, please check out my projects below.</p>
+            <p>我毕业于软件学院，出来工作了一年的运维职位，接触前端后热爱，自学前端，但是暂无前端工作经验。但正式这一事实，我有巨大的前景和空间，凭着我认真踏实爱学的态度，努力奋斗的拼搏，在新的平台我将做出更好的成绩。</p>
+            <p>我专门学习过前端Web开发技术，包括Vue，HTML（5），CSS（3），JavaScript等，希望在往后的开发项目中得到实践提升。</p>
+            <p>我做事细心，一丝不苟，谨慎认真，热爱学习</p>
         </div>
     </div>
 </template>

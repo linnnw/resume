@@ -1,7 +1,7 @@
 <template>
     <div id="resume">
         <Head @clickLi="clickLi" ref="head" @upTop="upTop" :class="['head',{headStyle: headStyle}]" ></Head>
-
+        <ContactInformation class="qq_weixin"></ContactInformation>
         <Scroll class="scroll" ref="scroll" @bTop="bToTop" :probeType="3">
 
             <Home ref="home" @project="project">
@@ -12,6 +12,7 @@
             <SomeProject ref="sproject"></SomeProject>
             <corporate ref="corporate"></corporate>
             <Contact ref="contact"></Contact>
+            <Copyright></Copyright>
         </Scroll>
         <BackTop  @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
 
@@ -30,6 +31,8 @@
     import SomeProject from '../components/someProject/SomeProject'
     import corporate from '../components/corporate/Corporate'
     import Contact from '../components/contact/Contact'
+    import Copyright from '../components/copyright/Copyright'
+    import ContactInformation from '../components/contactInformation/ContactInformation'
 
 
 
@@ -52,7 +55,9 @@
             Down,
             SomeProject,
             corporate,
-            Contact
+            Contact,
+            Copyright,
+            ContactInformation
         },
         methods: {
             project() {
@@ -116,6 +121,7 @@
 
 
     #resume {
+        position: relative;
         height: 100vh;
     }
     .scroll {
@@ -157,5 +163,13 @@
     }
     .headStyle>>>.nav-ul li {
         color: #595959;
+    }
+
+    .qq_weixin {
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
     }
 </style>
