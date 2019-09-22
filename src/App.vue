@@ -29,7 +29,7 @@ export default {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        font-family: STKaiti;
+        font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 
     }
 

@@ -172,6 +172,7 @@
             flex: 1;
             font-size: 18px;
             text-align: center;
+            transition: all .3s;
         }
 
         .head .nav-r .nav-ul li:hover {

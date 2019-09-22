@@ -14,7 +14,7 @@
             <Contact ref="contact"></Contact>
             <Copyright></Copyright>
         </Scroll>
-        <BackTop  @click.native="backTop"  v-show="flag" :probeType="3"></BackTop>
+        <BackTop ref="backTop"  @click.native="backTop" :probeType="3"></BackTop>
 
 
     </div>
@@ -40,7 +40,6 @@
         name: "Resume",
         data(){
             return {
-                flag: false,
                 headStyle: false,
                 headHidden: true,
                 infoTop: 0
@@ -70,6 +69,11 @@
             bToTop(option){
                 // console.log(option);
                 this.flag = (-option.y) > 700;  /*滑动到700像素显示回到顶部*/
+                if ((-option.y) > 700) {
+                    this.$refs.backTop.$el.style.opacity = 1
+                }else {
+                    this.$refs.backTop.$el.style.opacity = 0
+                }
                 this.headStyle = (-option.y) > 50;
                 // this.$refs.home.isHidden = option.y >= 0;
 

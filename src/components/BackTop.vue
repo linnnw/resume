@@ -17,13 +17,14 @@
             text-align: center;
             border-radius: 5px;
             background-color: #0C6164;
-            opacity: .95;
             color: #fff;
             font-weight: 700;
             font-size: 20px;
             position: fixed;
             right: 30px;
             bottom: 30px;
+            transition: all .3s;
+            opacity: 0;
         }
     }
     @media screen and (min-width: 768px){
@@ -34,13 +35,14 @@
             text-align: center;
             border-radius: 5px;
             background-color: #0C6164;
-            opacity: .95;
             color: #fff;
             font-weight: 700;
             font-size: 20px;
             position: fixed;
             right: 55px;
             bottom: 45px;
+            transition: all .3s;
+            opacity: 0;
         }
     }   /*电脑端*/
 

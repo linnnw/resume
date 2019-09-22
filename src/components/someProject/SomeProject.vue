@@ -238,7 +238,7 @@
             margin: 20px auto;
         }
         .classification li{
-            width: 60px;
+            width: 80px;
             margin: 35px auto;
             text-align: center;
             font-size: 16px;
@@ -311,7 +311,7 @@
             width: 407px;
             height: 557px;
             float: left;
-            box-shadow: 0px 5px 8px rgba(0,0,0,.3);
+            box-shadow: 0 5px 8px rgba(0,0,0,.3);
         }
         .pjPopup-r {
             float: right;

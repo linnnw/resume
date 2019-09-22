@@ -31,7 +31,7 @@
         </el-form-item>
 
         <el-form-item class="sub">
-            <el-button type="primary" @click="submitForm('dynamicValidateForm')">提交</el-button>
+            <el-button type="primary" @click="submitForm(dynamicValidateForm)">提交</el-button>
 
             <el-button @click="resetForm('dynamicValidateForm')">重置</el-button>
         </el-form-item>
@@ -39,7 +39,9 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
+
         name: "Form",
         data() {
             return {
@@ -57,10 +59,16 @@
             };
         },
         methods: {
-            submitForm(formName) {
+            submitForm(dynamicValidateForm) {
                 this.$refs['dynamicValidateForm'].validate((valid) => {
+                    // console.log(dynamicValidateForm);
+
+
+
                     if (valid) {
-                        alert('submit!');
+                        axios.post('../../../php/contact.php',{fullName: dynamicValidateForm,fullName: dynamicValidateForm.email,desc:dynamicValidateForm.desc}).then(res => {
+                            console.log(res);
+                        })
                     } else {
                         console.log('error submit!!');
                         return false;

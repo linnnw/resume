@@ -163,6 +163,7 @@
             transform: translateX(-50%);
             font-size: 20px;
             font-weight: 700;
+            transition: all .3s;
 
         }
         .body button:hover {
