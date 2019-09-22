@@ -12,9 +12,6 @@
         >
             <el-input placeholder="姓名" v-model="dynamicValidateForm.fullName" autocomplete="off"></el-input>
         </el-form-item>
-
-
-
         <el-form-item
                 prop="email"
                 label="邮箱"
@@ -61,12 +58,8 @@
         methods: {
             submitForm(dynamicValidateForm) {
                 this.$refs['dynamicValidateForm'].validate((valid) => {
-                    // console.log(dynamicValidateForm);
-
-
-
                     if (valid) {
-                        axios.post('../../../php/contact.php',{fullName: dynamicValidateForm,fullName: dynamicValidateForm.email,desc:dynamicValidateForm.desc}).then(res => {
+                        axios.post('/contact.php',{fullName: dynamicValidateForm,fullName: dynamicValidateForm.email,desc:dynamicValidateForm.desc}).then(res => {
                             console.log(res);
                         })
                     } else {
