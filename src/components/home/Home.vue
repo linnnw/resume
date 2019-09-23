@@ -28,7 +28,6 @@
                 divFlag: true,
                 isHidden: true,
                 flag: false,
-                screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值 （这个很重要）
                 colorStyle: false
             }
         },

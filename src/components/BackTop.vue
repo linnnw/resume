@@ -9,6 +9,7 @@
 </script>
 
 <style scoped>
+
     @media screen and (max-width: 767px){
         #top {
             width: 50px;

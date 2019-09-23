@@ -117,7 +117,7 @@
             margin: 20px auto;
         }
         .classification li{
-            width: 60px;
+            width: 70px;
             margin: 35px auto;
             text-align: center;
             font-size: 16px;

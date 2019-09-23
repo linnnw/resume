@@ -39,7 +39,8 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    // import {formemail} from './form'
+
     export default {
 
         name: "Form",
@@ -63,12 +64,31 @@
                 this.$refs['dynamicValidateForm'].validate((valid) => {
                     // console.log(dynamicValidateForm);
 
-
+                    console.log(dynamicValidateForm.fullName);
+                    console.log(dynamicValidateForm.email);
+                    console.log(dynamicValidateForm.desc);
 
                     if (valid) {
-                        axios.post('../../../php/contact.php',{fullName: dynamicValidateForm,fullName: dynamicValidateForm.email,desc:dynamicValidateForm.desc}).then(res => {
-                            console.log(res);
-                        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     } else {
                         console.log('error submit!!');
                         return false;

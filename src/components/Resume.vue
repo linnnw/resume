@@ -70,7 +70,7 @@
                 // console.log(option);
                 this.flag = (-option.y) > 700;  /*滑动到700像素显示回到顶部*/
                 if ((-option.y) > 700) {
-                    this.$refs.backTop.$el.style.opacity = 1
+                    this.$refs.backTop.$el.style.opacity = .9
                 }else {
                     this.$refs.backTop.$el.style.opacity = 0
                 }
