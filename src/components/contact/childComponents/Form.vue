@@ -39,13 +39,12 @@
 </template>
 
 <script>
-    // import {formemail} from './form'
-
     export default {
 
         name: "Form",
         data() {
             return {
+                server: null,
                 dynamicValidateForm: {
                     email: '',
                     fullName: '',
@@ -60,43 +59,24 @@
             };
         },
         methods: {
+
             submitForm(dynamicValidateForm) {
                 this.$refs['dynamicValidateForm'].validate((valid) => {
-                    // console.log(dynamicValidateForm);
-
-                    console.log(dynamicValidateForm.fullName);
-                    console.log(dynamicValidateForm.email);
-                    console.log(dynamicValidateForm.desc);
-
                     if (valid) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        this.$refs['dynamicValidateForm'].resetFields();
+                        this.$notify({
+                            title: 'success',
+                            message: '邮件已发送，我会尽快回复',
+                            type: 'success'
+                        });
                     } else {
                         console.log('error submit!!');
                         return false;
                     }
                 });
             },
-            resetForm(formName) {
-                this.$refs[formName].resetFields();
+            resetForm(dynamicValidateForm) {
+                this.$refs['dynamicValidateForm'].resetFields();
             }
 
         }
