@@ -120,11 +120,7 @@
             margin: 20px auto;
         }
         .classification li{
-<<<<<<< HEAD
             width: 70px;
-=======
-            display: inline-block;
->>>>>>> d86e2301f6a892489fd7ffb9251199b9bcde68aa
             margin: 35px auto;
             text-align: center;
             font-size: 16px;
