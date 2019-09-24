@@ -12,9 +12,6 @@
         >
             <el-input placeholder="姓名" v-model="dynamicValidateForm.fullName" autocomplete="off"></el-input>
         </el-form-item>
-
-
-
         <el-form-item
                 prop="email"
                 label="邮箱"
@@ -63,12 +60,14 @@
             submitForm(dynamicValidateForm) {
                 this.$refs['dynamicValidateForm'].validate((valid) => {
                     if (valid) {
+
                         this.$refs['dynamicValidateForm'].resetFields();
                         this.$notify({
                             title: 'success',
                             message: '邮件已发送，我会尽快回复',
                             type: 'success'
                         });
+
                     } else {
                         console.log('error submit!!');
                         return false;

@@ -34,8 +34,6 @@
     import Copyright from '../components/copyright/Copyright'
     import ContactInformation from '../components/contactInformation/ContactInformation'
 
-
-
     export default {
         name: "Resume",
         data(){
@@ -88,8 +86,6 @@
                 } else {
                     this.$refs.head.isCurrent = 3;
                 }
-
-
             },
             downInfo(){
                 this.infoTop = this.$refs.info.$el.offsetTop
@@ -122,8 +118,6 @@
 </script>
 
 <style scoped>
-
-
     #resume {
         position: relative;
         height: 100vh;
@@ -150,7 +144,6 @@
         z-index: 22;
         padding: 30px 40px!important;
         transition: all .5s ease;
-        /*background-color: #090D16;*/
     }
     .headStyle {
         background-color: hsla(0,0%,100%,.95);

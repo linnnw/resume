@@ -95,18 +95,21 @@
 <style scoped>
 
 
-    @media screen and (max-width: 767px){
+    /* @media screen and (max-width: 767px){ */
         #someProject {
             width: 100%;
             background-color: #F2F2F2;
             overflow: hidden;
-            padding-bottom: 150px;
+            padding: 70px 0;
         }
         h1 {
+            margin: 0 auto;
             font-size: 28px;
             font-weight: 700;
-            margin: 80px auto 0;
             width: 200px;
+            text-align: center;
+        }
+        ul {
             text-align: center;
         }
         .xm {
@@ -117,7 +120,11 @@
             margin: 20px auto;
         }
         .classification li{
+<<<<<<< HEAD
             width: 70px;
+=======
+            display: inline-block;
+>>>>>>> d86e2301f6a892489fd7ffb9251199b9bcde68aa
             margin: 35px auto;
             text-align: center;
             font-size: 16px;
@@ -213,12 +220,11 @@
             top: 0;
         }
 
-    }
+    /* } */
 
     @media screen and (min-width: 768px){
         #someProject {
             position: relative;
-            padding-bottom: 150px;
             width: 100%;
             background-color: #F2F2F2;
             overflow: hidden;
@@ -226,9 +232,9 @@
         h1 {
             font-size: 32px;
             font-weight: 700;
-            margin: 80px auto 0;
+            margin: 0 auto;
             width: 200px;
-            text-align: center;
+            text-align: center;;
         }
         .xm {
             border: none;

@@ -1,5 +1,5 @@
 <template>
-    <h1 id="top">TOP</h1>
+    <h1 id="top">置顶</h1>
 </template>
 
 <script>
@@ -38,7 +38,7 @@
             background-color: #0C6164;
             color: #fff;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 15px;
             position: fixed;
             right: 55px;
             bottom: 45px;
