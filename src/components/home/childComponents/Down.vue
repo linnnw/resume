@@ -13,5 +13,6 @@
 <style scoped>
     img {
         width: 50px;
+        cursor: pointer;
     }
 </style>

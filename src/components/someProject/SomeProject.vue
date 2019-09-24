@@ -95,7 +95,7 @@
 <style scoped>
 
 
-    /* @media screen and (max-width: 767px){ */
+    @media screen and (max-width: 767px){
         #someProject {
             width: 100%;
             background-color: #F2F2F2;
@@ -216,7 +216,7 @@
             top: 0;
         }
 
-    /* } */
+     }
 
     @media screen and (min-width: 768px){
         #someProject {

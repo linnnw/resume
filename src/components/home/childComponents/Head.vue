@@ -119,7 +119,7 @@
             position: absolute;
             right: -3px;
             top: 25px;
-            background-color: rgba(36,85,89,.9);
+            background-color: rgba(13,24,42,.9);
 
             width: 190px;
             height: 160px;
@@ -158,6 +158,9 @@
         .head .line {
             display: none;
         }
+        .head  .nav-l {
+            cursor: pointer;
+        }
         .head  .nav-l span{
             color: #0C6164;
         }
@@ -173,6 +176,7 @@
             font-size: 18px;
             text-align: center;
             transition: all .3s;
+            cursor: pointer;
         }
 
         .head .nav-r .nav-ul li:hover {
