@@ -224,6 +224,7 @@
             width: 100%;
             background-color: #F2F2F2;
             overflow: hidden;
+            padding: 120px 0;
         }
         h1 {
             font-size: 32px;

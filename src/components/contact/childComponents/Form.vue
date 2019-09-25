@@ -24,7 +24,7 @@
         </el-form-item>
 
         <el-form-item label="留言" prop="desc">
-            <el-input placeholder="留言" :rows="7" type="textarea" v-model="dynamicValidateForm.desc"></el-input>
+            <el-input placeholder="这个功能暂时不能使用" :rows="7" type="textarea" v-model="dynamicValidateForm.desc"></el-input>
         </el-form-item>
 
         <el-form-item class="sub">
