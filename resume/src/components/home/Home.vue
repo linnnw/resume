@@ -4,9 +4,11 @@
         <div class="body">
             <h1>LIN WEI</h1>
             <hr>
-            <transition enter-active-class='flipInX' leave-active-class='flipOutX' >
-                <div v-show="divFlag" class="post animated">WEB前端</div>
-            </transition>
+            <div class="web">
+                <transition enter-active-class='flipInX' leave-active-class='flipOutX' >
+                    <div v-show="divFlag" class="post animated">WEB前端</div>
+                </transition>
+            </div>
 
             <button @click="project">查看项目</button>
         </div>
@@ -89,7 +91,7 @@
             background-color: #0C6164;
         }
         .body button {
-            width: 220px;
+            width: 165px;
             height: 34px;
             border: 2px solid #0C6164;
             border-radius: 3px;
@@ -108,7 +110,8 @@
         }
     }
 
-    @media screen and (min-width: 768px){   /*电脑端*/
+    @media screen and (min-width: 768px) {
+        /*电脑端*/
         .homePage {
             background: url("../../assets/images/hero_1.jpg") no-repeat;
             background-size: 100% 100%;
@@ -122,14 +125,14 @@
             width: 800px;
             position: absolute;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             top: 50%;
         }
 
         .post {
             margin: 33px auto 37px;
             font-size: 16px;
-            animation-duration: 2200ms;  /*//动画执行时间*/
+            animation-duration: 2200ms; /*//动画执行时间*/
             color: #fff;
         }
 
@@ -140,6 +143,7 @@
             color: #fff;
             letter-spacing: 8px;
         }
+
         hr {
             margin-top: 35px;
             width: 100px;
@@ -147,6 +151,7 @@
             height: 3px;
             background-color: #0C6164;
         }
+
         .body button {
             box-sizing: border-box;
             width: 238px;
@@ -165,17 +170,19 @@
             transition: all .3s;
 
         }
+
         .body button:hover {
             color: #fff;
             background-color: #0C6164;
         }
+
         .body div {
             text-align: center;
         }
 
         .homePage .active {
             color: #fff;
-            background-color: #0C6164!important;
+            background-color: #0C6164 !important;
         }
     }
 </style>
